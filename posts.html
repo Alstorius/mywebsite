@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Posts — VersBinarii</title>
+  <meta name="description" content="Tous les articles techniques de VersBinarii : Rust, systèmes embarqués, Linux, AWS." />
+  <meta name="author" content="Kris — VersBinarii" />
+  <link rel="canonical" href="https://versbinarii.gitlab.io/blog/posts" />
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://versbinarii.gitlab.io/blog/posts" />
+  <meta property="og:title"       content="Posts — VersBinarii" />
+  <meta property="og:description" content="Articles techniques sur Rust, systèmes embarqués, Linux et AWS." />
+  <meta name="twitter:card"  content="summary" />
+  <meta name="twitter:title" content="Posts — VersBinarii" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="site.js"></script>
+</head>
+<body>
+<div class="site-wrapper">
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="site-title">VersBinarii</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">MENU</button>
+        <nav class="site-nav" id="siteNav">
+          <a href="posts.html" class="active">Posts</a>
+          <a href="essays.html">Essais</a>
+          <a href="reading.html">Lectures</a>
+          <a href="now.html">Now</a>
+          <a href="contact.html">Contact</a>
+          <a href="about.html">About</a>
+        </nav>
+        <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">
+          <span class="icon-moon">☽</span>
+          <span class="icon-sun">☀</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="page-header">
+        <h1>Posts</h1>
+      </div>
+
+      <!-- TAG FILTER -->
+      <div class="tag-filter" id="tagFilter" role="group" aria-label="Filtrer par tag">
+        <button class="tag-btn active" data-tag="all">tous</button>
+        <button class="tag-btn" data-tag="rust">rust</button>
+        <button class="tag-btn" data-tag="embedded">embedded</button>
+        <button class="tag-btn" data-tag="linux">linux</button>
+        <button class="tag-btn" data-tag="aws">aws</button>
+        <button class="tag-btn" data-tag="web">web</button>
+      </div>
+
+      <div id="postGroups">
+
+        <div class="year-group" data-year="2021">
+          <p class="year-label">2021</p>
+          <ul class="post-list">
+            <li data-tags="embedded linux">
+              <a href="#" class="post-link">
+                <span class="post-title">Stm32CubeIDE and Vim on Linux for embedded development</span>
+                <span class="post-date">Mar 20</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="year-group" data-year="2020">
+          <p class="year-label">2020</p>
+          <ul class="post-list">
+            <li data-tags="linux">
+              <a href="#" class="post-link">
+                <span class="post-title">Arch Linux - Sway by step installation guide</span>
+                <span class="post-date">Apr 03</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="year-group" data-year="2019">
+          <p class="year-label">2019</p>
+          <ul class="post-list">
+            <li data-tags="rust web">
+              <a href="#" class="post-link">
+                <span class="post-title">Creating Web App in Rust with Yew</span>
+                <span class="post-date">Oct 02</span>
+              </a>
+            </li>
+            <li data-tags="rust embedded">
+              <a href="#" class="post-link">
+                <span class="post-title">Embedded Rust Stm32f4xx Hal</span>
+                <span class="post-date">Jul 15</span>
+              </a>
+            </li>
+            <li data-tags="rust web">
+              <a href="#" class="post-link">
+                <span class="post-title">Exchanging data between Node and Rust</span>
+                <span class="post-date">Jan 30</span>
+              </a>
+            </li>
+            <li data-tags="aws web">
+              <a href="#" class="post-link">
+                <span class="post-title">Serverless App Deployment in Aws</span>
+                <span class="post-date">Jan 23</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="year-group" data-year="2015">
+          <p class="year-label">2015</p>
+          <ul class="post-list">
+            <li data-tags="embedded linux">
+              <a href="#" class="post-link">
+                <span class="post-title">Installing OpenOCD From Source</span>
+                <span class="post-date">Jun 03</span>
+              </a>
+            </li>
+            <li data-tags="embedded">
+              <a href="#" class="post-link">
+                <span class="post-title">Messing With Stm32 Discovery Interrupts</span>
+                <span class="post-date">May 29</span>
+              </a>
+            </li>
+            <li data-tags="embedded">
+              <a href="#" class="post-link">
+                <span class="post-title">Messing With Stm32 Discovery Using External Oscillator</span>
+                <span class="post-date">May 12</span>
+              </a>
+            </li>
+            <li data-tags="embedded">
+              <a href="#" class="post-link">
+                <span class="post-title">Messing With Stm32 Discovery Pin_state_reading</span>
+                <span class="post-date">Apr 17</span>
+              </a>
+            </li>
+            <li data-tags="embedded">
+              <a href="#" class="post-link">
+                <span class="post-title">Messing With Stm32 Discovery Led Flash</span>
+                <span class="post-date">Apr 05</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div><!-- /postGroups -->
+
+      <p id="noResults" style="display:none; font-family:var(--mono); font-size:0.8rem; color:var(--text-muted); padding: 2rem 0;">
+        Aucun post pour ce tag.
+      </p>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span>© 2021 <a href="index.html">VersBinarii</a></span>
+        <div class="footer-right">
+          <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
+          <span class="footer-sep">·</span>
+          <span>Made with <a href="https://www.getzola.org" target="_blank" rel="noopener">Zola</a></span>
+          <span class="footer-sep">·</span>
+          <span>Theme <a href="https://github.com/VersBinarii/hermit_zola" target="_blank" rel="noopener">Hermit_Zola</a></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+<script>
+  var filterBtns = document.querySelectorAll('.tag-btn');
+  var allItems   = document.querySelectorAll('#postGroups .post-list li');
+  var groups     = document.querySelectorAll('#postGroups .year-group');
+  var noResults  = document.getElementById('noResults');
+
+  filterBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var tag = this.dataset.tag;
+      filterBtns.forEach(function(b) { b.classList.remove('active'); });
+      this.classList.add('active');
+
+      var totalVisible = 0;
+
+      groups.forEach(function(group) {
+        var items   = group.querySelectorAll('.post-list li');
+        var visible = 0;
+
+        items.forEach(function(item) {
+          var tags = item.dataset.tags || '';
+          var show = tag === 'all' || tags.split(' ').indexOf(tag) !== -1;
+          item.hidden = !show;
+          if (show) visible++;
+        });
+
+        /* hide whole year group if nothing visible */
+        group.hidden = visible === 0;
+        totalVisible += visible;
+      });
+
+      noResults.style.display = totalVisible === 0 ? 'block' : 'none';
+    });
+  });
+</script>
+</body>
+</html>

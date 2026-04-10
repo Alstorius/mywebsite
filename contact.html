@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — VersBinarii</title>
+  <meta name="description" content="Envoyer un message à Kris — VersBinarii." />
+  <meta name="author" content="Kris — VersBinarii" />
+  <link rel="canonical" href="https://versbinarii.gitlab.io/blog/contact" />
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://versbinarii.gitlab.io/blog/contact" />
+  <meta property="og:title"       content="Contact — VersBinarii" />
+  <meta property="og:description" content="Envoyer un message à Kris." />
+  <meta name="twitter:card"  content="summary" />
+  <meta name="twitter:title" content="Contact — VersBinarii" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="site.js"></script>
+</head>
+<body>
+<div class="site-wrapper">
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="site-title">VersBinarii</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">MENU</button>
+        <nav class="site-nav" id="siteNav">
+          <a href="posts.html">Posts</a>
+          <a href="essays.html">Essais</a>
+          <a href="reading.html">Lectures</a>
+          <a href="now.html">Now</a>
+          <a href="contact.html" class="active">Contact</a>
+          <a href="about.html">About</a>
+        </nav>
+        <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">
+          <span class="icon-moon">☽</span>
+          <span class="icon-sun">☀</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="page-header">
+        <h1>Contact</h1>
+      </div>
+
+      <p class="contact-intro">
+        Une question, une idée, ou juste envie de discuter ? Remplissez ce formulaire et
+        votre message sera envoyé à <strong>kris@versbinarii.dev</strong>.
+      </p>
+
+      <div class="contact-form" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="fname">Prénom <span class="required">*</span></label>
+            <input class="form-input" type="text" id="fname" name="fname" placeholder="Votre prénom" required autocomplete="given-name" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="lname">Nom</label>
+            <input class="form-input" type="text" id="lname" name="lname" placeholder="Votre nom" autocomplete="family-name" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">Email <span class="required">*</span></label>
+          <input class="form-input" type="email" id="email" name="email" placeholder="vous@exemple.com" required autocomplete="email" />
+          <span class="form-hint">Jamais partagé, jamais vendu.</span>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="subject">Sujet <span class="required">*</span></label>
+          <input class="form-input" type="text" id="subject" name="subject" placeholder="De quoi souhaitez-vous parler ?" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="message">Message <span class="required">*</span></label>
+          <textarea class="form-textarea" id="message" name="message" placeholder="Votre message…" required></textarea>
+        </div>
+        <div class="form-submit-row">
+          <span class="form-target">kris@versbinarii.dev</span>
+          <button class="btn-submit" id="submitBtn" type="button">Envoyer →</button>
+        </div>
+        <div class="form-status" id="formStatus"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span>© 2021 <a href="index.html">VersBinarii</a></span>
+        <div class="footer-right">
+          <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
+          <span class="footer-sep">·</span>
+          <span>Made with <a href="https://www.getzola.org" target="_blank" rel="noopener">Zola</a></span>
+          <span class="footer-sep">·</span>
+          <span>Theme <a href="https://github.com/VersBinarii/hermit_zola" target="_blank" rel="noopener">Hermit_Zola</a></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  const RECIPIENT = 'kris@versbinarii.dev';
+  document.getElementById('submitBtn').addEventListener('click', function () {
+    const fname   = document.getElementById('fname').value.trim();
+    const lname   = document.getElementById('lname').value.trim();
+    const email   = document.getElementById('email').value.trim();
+    const subject = document.getElementById('subject').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const status  = document.getElementById('formStatus');
+
+    if (!fname || !email || !subject || !message) {
+      showStatus('error', '⚠ Veuillez remplir tous les champs obligatoires.'); return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showStatus('error', '⚠ Adresse email invalide.'); return;
+    }
+
+    const fullName = lname ? fname + ' ' + lname : fname;
+    const body = 'De : ' + fullName + ' <' + email + '>\n\n' + message;
+    const mailto = 'mailto:' + RECIPIENT +
+      '?subject=' + encodeURIComponent(subject) +
+      '&body='    + encodeURIComponent(body);
+
+    window.location.href = mailto;
+    showStatus('success', "✓ Votre client mail vient de s'ouvrir. Envoyez le message depuis votre messagerie.");
+    document.getElementById('submitBtn').textContent = 'Ouvert ✓';
+    document.getElementById('submitBtn').disabled = true;
+  });
+
+  function showStatus(type, text) {
+    var el = document.getElementById('formStatus');
+    el.textContent = text;
+    el.className = 'form-status ' + type;
+  }
+</script>
+</body>
+</html>

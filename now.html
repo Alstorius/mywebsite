@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Now — VersBinarii</title>
+  <meta name="description" content="Ce sur quoi je travaille, lis et pense en ce moment." />
+  <meta name="author" content="Kris — VersBinarii" />
+  <link rel="canonical" href="https://versbinarii.gitlab.io/blog/now" />
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://versbinarii.gitlab.io/blog/now" />
+  <meta property="og:title"       content="Now — VersBinarii" />
+  <meta property="og:description" content="Ce sur quoi je travaille, lis et pense en ce moment." />
+  <meta name="twitter:card"  content="summary" />
+  <meta name="twitter:title" content="Now — VersBinarii" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="site.js"></script>
+</head>
+<body>
+<div class="site-wrapper">
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="site-title">VersBinarii</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">MENU</button>
+        <nav class="site-nav" id="siteNav">
+          <a href="posts.html">Posts</a>
+          <a href="essays.html">Essais</a>
+          <a href="reading.html">Lectures</a>
+          <a href="now.html" class="active">Now</a>
+          <a href="contact.html">Contact</a>
+          <a href="about.html">About</a>
+        </nav>
+        <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">
+          <span class="icon-moon">☽</span>
+          <span class="icon-sun">☀</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <div class="article-header">
+        <div class="article-meta">
+          <span>Mis à jour</span>
+          <span class="dot">·</span>
+          <span id="nowDate">Avril 2026</span>
+        </div>
+        <h1>Now</h1>
+      </div>
+
+      <div class="article-body">
+
+        <p class="now-updated" id="nowPulse">dernière mise à jour : Avril 2026</p>
+
+        <!-- TRAVAIL -->
+        <div class="now-section">
+          <p class="now-section-label">// travail</p>
+          <p>
+            Je travaille comme architecte systèmes sur une plateforme IoT industrielle. La majorité de mon temps tourne autour de la conception de pipelines de données embarqués et de la réduction de la dette technique d'un système qui a grandi plus vite que son design.
+          </p>
+          <p>
+            Actuellement en train de migrer des composants critiques vers Rust. Pas pour suivre une mode — parce que les garanties de mémoire changent vraiment la nature des conversations qu'on a sur les bugs en production.
+          </p>
+        </div>
+
+        <hr class="now-divider" />
+
+        <!-- PROJETS PERSO -->
+        <div class="now-section">
+          <p class="now-section-label">// projets</p>
+          <ul>
+            <li>Un petit outil CLI en Rust pour automatiser des tâches de release — rien de révolutionnaire, mais ça m'apprend.</li>
+            <li>Ce site — construire quelque chose de propre, sans framework, me repose l'esprit.</li>
+            <li>Un essai en cours sur la complexité cognitive dans les systèmes distribués.</li>
+          </ul>
+        </div>
+
+        <hr class="now-divider" />
+
+        <!-- LECTURE -->
+        <div class="now-section">
+          <p class="now-section-label">// lecture</p>
+          <ul>
+            <li><em>A Philosophy of Software Design</em> — Ousterhout. À la moitié. Dense, juste, inconfortable.</li>
+            <li><em>The Mythical Man-Month</em> — Relécteur. Toujours aussi déprimant d'actualité.</li>
+          </ul>
+        </div>
+
+        <hr class="now-divider" />
+
+        <!-- RÉFLEXIONS -->
+        <div class="now-section">
+          <p class="now-section-label">// dans ma tête</p>
+          <p>
+            Je pense beaucoup à la différence entre <em>comprendre</em> un système et être capable de le <em>décrire</em>. On confond souvent les deux. La documentation n'est pas la connaissance.
+          </p>
+          <p>
+            Je me demande aussi si le mouvement vers l'IA dans le code ne va pas, paradoxalement, aggraver la dette de compréhension des systèmes. On va écrire plus vite du code que personne ne comprend vraiment.
+          </p>
+        </div>
+
+        <hr class="now-divider" />
+
+        <p class="now-footer-note">
+          C'est une page <a href="https://nownownow.com/about" target="_blank" rel="noopener">/now</a> — une convention initiée par Derek Sivers.
+          L'idée : écrire ce sur quoi vous travaillez <em>en ce moment</em>, comme si un ami vous demandait ce qui se passe dans votre vie.
+        </p>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span>© 2021 <a href="index.html">VersBinarii</a></span>
+        <div class="footer-right">
+          <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
+          <span class="footer-sep">·</span>
+          <span>Made with <a href="https://www.getzola.org" target="_blank" rel="noopener">Zola</a></span>
+          <span class="footer-sep">·</span>
+          <span>Theme <a href="https://github.com/VersBinarii/hermit_zola" target="_blank" rel="noopener">Hermit_Zola</a></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

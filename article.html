@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Software Complexity and the Human Mind — VersBinarii</title>
+  <meta name="description" content="Why do we keep building systems more complex than we can hold in our heads, and what does that say about the way we think about software?" />
+  <meta name="author" content="Kris — VersBinarii" />
+  <link rel="canonical" href="https://versbinarii.gitlab.io/blog/essays/software-complexity" />
+  <meta property="og:type"        content="article" />
+  <meta property="og:url"         content="https://versbinarii.gitlab.io/blog/essays/software-complexity" />
+  <meta property="og:title"       content="Software Complexity and the Human Mind" />
+  <meta property="og:description" content="Why do we keep building systems more complex than we can hold in our heads?" />
+  <meta property="article:published_time" content="2024-03-15" />
+  <meta property="article:author"         content="Kris" />
+  <meta name="twitter:card"        content="summary" />
+  <meta name="twitter:title"       content="Software Complexity and the Human Mind — VersBinarii" />
+  <meta name="twitter:description" content="Why do we keep building systems more complex than we can hold in our heads?" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="site.js"></script>
+</head>
+<body>
+<div class="site-wrapper">
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="site-title">VersBinarii</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">MENU</button>
+        <nav class="site-nav" id="siteNav">
+          <a href="posts.html">Posts</a>
+          <a href="essays.html" class="active">Essais</a>
+          <a href="reading.html">Lectures</a>
+          <a href="now.html">Now</a>
+          <a href="contact.html">Contact</a>
+          <a href="about.html">About</a>
+        </nav>
+        <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">
+          <span class="icon-moon">☽</span>
+          <span class="icon-sun">☀</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <!-- EN-TÊTE ARTICLE -->
+      <div class="article-header">
+        <div class="article-meta">
+          <span>15 mars 2024</span>
+          <span class="dot">·</span>
+          <span>8 min de lecture</span>
+          <span class="dot">·</span>
+          <span>~1 900 mots</span>
+        </div>
+        <h1>Software Complexity and the Human Mind</h1>
+        <div class="article-tags">
+          <a href="essays.html" class="article-tag-link">systems</a>
+          <a href="essays.html" class="article-tag-link">architecture</a>
+          <a href="essays.html" class="article-tag-link">philosophie</a>
+        </div>
+      </div>
+
+      <!-- TABLE DES MATIÈRES -->
+      <nav class="toc" aria-label="Table des matières">
+        <p class="toc-title">Table des matières</p>
+        <ol>
+          <li><a href="#le-probleme">Le problème de la tête</a></li>
+          <li><a href="#complexite-accidentelle">Complexité accidentelle vs essentielle</a></li>
+          <li><a href="#cout-cognitif">Le coût cognitif caché</a></li>
+          <li><a href="#ce-quon-peut-faire">Ce qu'on peut réellement faire</a></li>
+          <li><a href="#conclusion">Conclusion</a></li>
+        </ol>
+      </nav>
+
+      <!-- CORPS -->
+      <article class="article-body">
+
+        <p>
+          Il existe un moment précis dans la vie d'un système logiciel où personne ne le comprend plus dans sa totalité. Ce moment passe souvent inaperçu. On continue à travailler dessus, à ajouter des fonctionnalités, à corriger des bugs — mais quelque chose a changé. Le système est devenu plus grand que l'esprit humain qui l'a conçu.
+        </p>
+
+        <p>
+          Ce n'est pas une métaphore. C'est une limite cognitive mesurable, et elle a des conséquences profondes sur la façon dont on devrait penser la conception logicielle.
+        </p>
+
+        <h2 id="le-probleme">Le problème de la tête</h2>
+
+        <p>
+          La mémoire de travail humaine peut tenir environ 7 éléments simultanément — plus ou moins deux, selon les individus et les circonstances. C'est le chiffre de George Miller, publié en 1956. La recherche plus récente suggère que ce nombre est encore plus bas pour des éléments complexes : entre 3 et 5.
+        </p>
+
+        <p>
+          Un système logiciel non trivial a des milliers de composants, de dépendances, d'invariants implicites. La relation entre ces éléments n'est pas linéaire : elle est exponentielle. Deux composants ont une relation. Dix composants ont potentiellement 45 relations. Cent composants : 4 950.
+        </p>
+
+        <blockquote>
+          "The purpose of abstraction is not to be vague, but to create a new semantic level in which one can be absolutely precise."
+          <cite>— Edsger W. Dijkstra</cite>
+        </blockquote>
+
+        <p>
+          L'abstraction est notre réponse à ce problème. On groupe les composants en modules, les modules en services, les services en domaines. On crée des niveaux d'indirection qui nous permettent de travailler à une échelle sans avoir à tenir l'autre dans notre tête en même temps.
+        </p>
+
+        <h2 id="complexite-accidentelle">Complexité accidentelle vs essentielle</h2>
+
+        <p>
+          Fred Brooks, dans <em>The Mythical Man-Month</em>, distingue deux types de complexité : <strong>essentielle</strong> et <strong>accidentelle</strong>. La complexité essentielle est inhérente au problème qu'on résout. La complexité accidentelle, c'est ce qu'on ajoute par la façon dont on le résout.
+        </p>
+
+        <p>
+          La plupart des systèmes que j'ai vus ont un ratio désastreux. Soixante, soixante-dix pour cent de leur complexité n'est pas dans le problème — elle est dans les couches d'abstractions inversées, les décisions d'architecture prises sous pression, les bibliothèques ajoutées parce que c'était à la mode.
+        </p>
+
+        <h2 id="cout-cognitif">Le coût cognitif caché</h2>
+
+        <p>
+          On parle souvent du coût technique de la dette technique. On parle moins du coût cognitif : le fait qu'un développeur qui rejoint un système complexe met des mois à être productif, et n'est peut-être jamais vraiment à l'aise avec l'ensemble du système.
+        </p>
+
+        <p>
+          Ce coût est réel et massif. Il ralentit les nouvelles fonctionnalités. Il génère des bugs que personne n'anticipait parce que personne ne pouvait voir l'interaction. Il décourage les gens qui auraient pu contribuer.
+        </p>
+
+        <h2 id="ce-quon-peut-faire">Ce qu'on peut réellement faire</h2>
+
+        <p>
+          La réponse honnête est : pas grand chose à l'échelle du système. Mais beaucoup à l'échelle de la décision individuelle.
+        </p>
+
+        <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.4rem;">
+          <li style="padding-left: 1.2rem; position: relative;"><span style="position:absolute;left:0;color:var(--accent-dim);font-family:var(--mono);">—</span> Concevoir des modules qui peuvent être compris indépendamment.</li>
+          <li style="padding-left: 1.2rem; position: relative;"><span style="position:absolute;left:0;color:var(--accent-dim);font-family:var(--mono);">—</span> Résister à l'envie d'ajouter de l'indirection "pour la flexibilité future".</li>
+          <li style="padding-left: 1.2rem; position: relative;"><span style="position:absolute;left:0;color:var(--accent-dim);font-family:var(--mono);">—</span> Écrire du code dont la lecture révèle l'intention sans commentaires.</li>
+          <li style="padding-left: 1.2rem; position: relative;"><span style="position:absolute;left:0;color:var(--accent-dim);font-family:var(--mono);">—</span> Traiter la documentation comme une contrainte de conception, pas un livrable.</li>
+        </ul>
+
+        <h2 id="conclusion">Conclusion</h2>
+
+        <p>
+          On ne gagnera pas contre la complexité. Les systèmes utiles sont complexes — c'est dans leur nature. Mais on peut choisir quelle complexité on accepte et quelle complexité on refuse. Et cette distinction, prise de façon délibérée à chaque décision d'architecture, à chaque revue de code, à chaque nouvelle dépendance — c'est ce qui sépare un système qui dure d'un système qui s'effondre sous son propre poids.
+        </p>
+
+        <hr />
+
+        <p class="word-count">~1 900 mots &nbsp;·&nbsp; 2024-03-15</p>
+
+        <!-- NAVIGATION PREV / NEXT -->
+        <nav class="post-nav" aria-label="Navigation entre articles">
+          <a href="essays.html" class="post-nav-link prev">
+            <span class="post-nav-dir">← Précédent</span>
+            <span class="post-nav-title">Architecture is a Conversation</span>
+          </a>
+          <a href="essays.html" class="post-nav-link next">
+            <span class="post-nav-dir">Suivant →</span>
+            <span class="post-nav-title">Rust, Safety and the Cost of Correctness</span>
+          </a>
+        </nav>
+
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span>© 2021 <a href="index.html">VersBinarii</a></span>
+        <div class="footer-right">
+          <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
+          <span class="footer-sep">·</span>
+          <span>Made with <a href="https://www.getzola.org" target="_blank" rel="noopener">Zola</a></span>
+          <span class="footer-sep">·</span>
+          <span>Theme <a href="https://github.com/VersBinarii/hermit_zola" target="_blank" rel="noopener">Hermit_Zola</a></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  /* Smooth scroll for TOC links */
+  document.querySelectorAll('.toc a[href^="#"]').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>
